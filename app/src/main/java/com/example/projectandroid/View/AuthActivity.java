@@ -10,10 +10,12 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.projectandroid.Model.User;
 import com.example.projectandroid.R;
 import com.example.projectandroid.Repository.UserRepository;
+import com.example.projectandroid.ViewModel.PostViewModel;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.IdpResponse;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,12 +34,15 @@ public class AuthActivity extends AppCompatActivity {
 
     private UserRepository userRepository;
 
+    private PostViewModel postViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         userRepository = new UserRepository();
         System.out.println(userRepository.getFirebaseAuth());
         System.out.println(FirebaseAuth.getInstance().getCurrentUser());
+        postViewModel = new ViewModelProvider(this).get(PostViewModel.class);
         startAuthFlow();
     }
 
@@ -133,6 +138,7 @@ public class AuthActivity extends AppCompatActivity {
         if (user != null) {
             User userObj = new User(user.getDisplayName());
             userRepository.saveUser(userObj, this::goToHome);
+            postViewModel.updateUsername(username, user.getUid());
             UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                     .setDisplayName(username)
                     .build();

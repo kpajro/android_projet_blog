@@ -120,6 +120,7 @@ public class ProfileEditActivity extends AppCompatActivity {
             user.updateProfile(profileUpdates).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
                     postViewModel.updateUserPosts(user.getUid(), username);
+                    postViewModel.updateUsername(username, user.getUid());
                     Toast.makeText(this, "Profile mis à jour", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(this, "Mise à jour echoué", Toast.LENGTH_SHORT).show();

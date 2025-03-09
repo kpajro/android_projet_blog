@@ -7,6 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.example.projectandroid.Model.Post;
 import com.example.projectandroid.Repository.PostRepository;
+import com.google.firebase.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -76,6 +77,26 @@ public class PostViewModel extends ViewModel {
                     if (postUserId != null && postUserId.equals(userId)) {
                         postSnapshot.getRef().child("user/username").setValue(newUsername);
                     }
+                }
+                Log.d("Firebase", "les posts des users mise à jour");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", "mise à jours des posts echoué: " + error.getMessage());
+            }
+        });
+    }
+
+    // met à jour le username de l'utilisateur
+    public void updateUsername(String newUsername, String uid) {
+        DatabaseReference usernameRef = FirebaseDatabase.getInstance().getReference("users").child(uid);
+
+        usernameRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    snapshot.getRef().child("username").setValue(newUsername);
                 }
                 Log.d("Firebase", "les posts des users mise à jour");
             }
