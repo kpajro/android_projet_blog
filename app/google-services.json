@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "994483507592",
+    "firebase_url": "https://fbcalcul-30ff8-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "fbcalcul-30ff8",
+    "storage_bucket": "fbcalcul-30ff8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994483507592:android:8434b4829d38668d06ea3d",
+        "android_client_info": {
+          "package_name": "com.example.projectandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994483507592-ip1d6k9fld4ev19nam2b6c9u8mm76rdp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.projectandroid",
+            "certificate_hash": "fffc5166a8161282fdbeccc703def42f459f129b"
+          }
+        },
+        {
+          "client_id": "994483507592-n8son56rmoubjvulu8jg7b2fm9278sc7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.projectandroid",
+            "certificate_hash": "20eed3e75104d9c2d348c68597f13e29c15ffaeb"
+          }
+        },
+        {
+          "client_id": "994483507592-apdlj7cjjn9gfsg2ctm30gjg2ge20417.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGrYkujJFf6uGuKVeL2Qyg_XqU0eYoRxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994483507592-apdlj7cjjn9gfsg2ctm30gjg2ge20417.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
