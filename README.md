@@ -1,2 +1,1 @@
-<p>Projet Blog avec android studio en Java</p>
-<p>Caméra à tester sur telephone physique</p>
+<p>Very simple Java mobile app that simulates a blog like environment where you leave posts</p>
